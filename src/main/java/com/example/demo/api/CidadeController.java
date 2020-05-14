@@ -153,8 +153,8 @@ public class CidadeController {
     }
 
     @GetMapping(path = "/registroPorColuna/{coluna}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<JSONObject> getCountPorColuna(@PathVariable("coluna") String columnName){
-        JSONObject json = cidadeService.getRegistroPorColuna(columnName);
+    public ResponseEntity<JSONObject> getRegistroPorColuna(@PathVariable ("coluna") String coluna){
+        JSONObject json = cidadeService.getRegistroPorColuna(coluna);
         return new ResponseEntity(json,HttpStatus.OK);
     }
 

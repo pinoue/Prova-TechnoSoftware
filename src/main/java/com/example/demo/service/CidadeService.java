@@ -67,8 +67,13 @@ public class CidadeService {
     }
 
     public JSONObject getRegistroPorColuna(String columnName){
+
         return respository.countPorColuna(columnName);
     }
+
+    /*public  JSONObject getRegistroPorColuna(String columnName){
+        return respository.countDistinctByColumn(columnName);
+    }*/
 
     public JSONObject getTotalRegistros(){
         return respository.totalRegistros();

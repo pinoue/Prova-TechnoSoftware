@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import com.example.demo.model.Cidade;
 import net.minidev.json.JSONObject;
+import org.hibernate.annotations.NamedQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -30,7 +31,7 @@ public interface CidadeRespository extends JpaRepository<Cidade, Integer> {
     @Query(value = "SELECT c.uf, COUNT(c.ibgeid) as Cidades FROM Cidade c GROUP BY c.uf;", nativeQuery = true)
     List<JSONObject>findNumeroCidadesPorEstado();
 
-    @Query(value = "SELECT COUNT(DISTINCT(?)) FROM Cidade", nativeQuery = true)
+    @Query(value = "SELECT COUNT(DISTINCT (?1)) FROM Cidade c", nativeQuery = true)
     JSONObject countPorColuna(String columnName);
 
     @Query(value = "SELECT COUNT(ibgeid) FROM Cidade", nativeQuery = true)
